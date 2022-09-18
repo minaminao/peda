@@ -108,12 +108,12 @@ class PEDA(object):
         else:
             logfd = tmpfile()
         logname = logfd.name
-        gdb.execute('set logging off') # prevent nested call
+        gdb.execute('set logging enabled off') # prevent nested call
         gdb.execute('set height 0') # disable paging
         gdb.execute('set logging file %s' % logname)
         gdb.execute('set logging overwrite on')
         gdb.execute('set logging redirect on')
-        gdb.execute('set logging on')
+        gdb.execute('set logging enabled on')
         try:
             gdb.execute(gdb_command)
             gdb.flush()
